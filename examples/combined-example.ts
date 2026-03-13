@@ -15,10 +15,10 @@ function serverFactory(): McpServer {
   });
   
   // Add a tool to the stateful server
-  server.tool(
+  server.registerTool(
     'greet',
-    { name: z.string() },
-    async ({ name }) => ({ content: [{ type: 'text', text: `Hello, ${name}! (from stateful server)` }] })
+    {inputSchema:{ title: z.string() }},
+    async ({ title }) => ({ content: [{ type: 'text', text: `Hello, ${title}! (from stateful server)` }] })
   );
 
   return server;

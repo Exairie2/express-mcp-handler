@@ -15,9 +15,9 @@ function serverFactory() {
   });
 
   // Add a simple echo tool
-  server.tool(
+  server.registerTool(
     'echo',
-    { message: z.string() },
+    {inputSchema:{ message: z.string() }},
     async ({ message }) => ({ content: [{ type: 'text', text: `Echo: ${message}` }] })
   );
 
